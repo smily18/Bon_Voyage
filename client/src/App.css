@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,600;1,600&display=swap');
+
+body {
+  background: #eeeeee;
+  font-family: "Bona Nova";
+}
+.logo {
+  width: 160px;
+}
+.navbar {
+  margin: 0px auto;
+  background: #eff5f5;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+.navbar a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+}
+.menu a:hover {
+  padding: 0.5rem 1rem 0.2rem 1rem;
+  border-bottom: 5px solid red;
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+.cities{
+  display: grid;
+  grid-template-columns: auto auto auto
+}
+/* card */
+.card {
+  width: 300px;
+  height:450px;
+  padding:10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:50px 50px;
+}
+.card:hover{
+  cursor: pointer;
+}
+.card h4{
+  text-align: center;
+  padding: 10px 20px;
+}
+.card img{
+  width:280px;
+  height:385px;
+  object-fit: fill;
+}
+.card a{
+  text-decoration: none;
+  color: black;
+}
+
+/* city details */
+.city-details{
+  font-family: "Montserrat";
+}
+
+.bus-route{
+  display: flex;
+  padding: 10px;
+  margin:20px;
+  background-color: eff5f5;
+  box-shadow: 5px 10px 8px rgba(146, 15, 15, 0.2);
+}
+
+.city-details a{
+  color: black;
+  text-decoration: none;
+}
