@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,600;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,600;1,600&display=swap");
 
 body {
   background: #eeeeee;
@@ -22,6 +22,17 @@ body {
   text-decoration: none;
   color: black;
 }
+.navbar button{
+  height: 40px;
+  padding:5px;
+  margin:0px 20px;
+  border-radius: 5px;
+  color:#fff;
+  background-color:red;
+  border:none;
+  float:right;
+}
+
 .menu a:hover {
   padding: 0.5rem 1rem 0.2rem 1rem;
   border-bottom: 5px solid red;
@@ -30,50 +41,94 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.cities{
+.cities {
   display: grid;
-  grid-template-columns: auto auto auto
+  grid-template-columns: auto auto auto;
 }
 /* card */
 .card {
   width: 300px;
-  height:450px;
-  padding:10px;
+  height: 450px;
+  padding: 10px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin:50px 50px;
+  margin: 50px 50px;
 }
-.card:hover{
+.card:hover {
   cursor: pointer;
 }
-.card h4{
+.card h4 {
   text-align: center;
   padding: 10px 20px;
 }
-.card img{
-  width:280px;
-  height:385px;
+.card img {
+  width: 280px;
+  height: 385px;
   object-fit: fill;
 }
-.card a{
+.card a {
   text-decoration: none;
   color: black;
 }
 
 /* city details */
-.city-details{
+.city-details {
   font-family: "Montserrat";
 }
 
-.bus-route{
+.bus-route {
   display: flex;
   padding: 10px;
-  margin:20px;
+  margin: 20px;
   background-color: eff5f5;
   box-shadow: 5px 10px 8px rgba(146, 15, 15, 0.2);
 }
 
-.city-details a{
+.city-details a {
   color: black;
   text-decoration: none;
+}
+
+label,
+input {
+  display: block;
+  margin: 10px 0px;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form button {
+    background:green;
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    margin:20px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  div.error {
+    padding: 10px;
+    background: #ffefef;
+    border: 1px solid red;
+    color: red;
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+  input.error {
+    border: 1px solid var(--error);
+  }
+
+.login {
+  text-align: left;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
 }

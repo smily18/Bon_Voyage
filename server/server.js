@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Bus = require("./models/busModel");
 const cityRoutes = require("./routes/cities");
 const busRoutes = require("./routes/buses");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/city/", cityRoutes);
 
 app.use("/bus/", busRoutes);
+
+app.use("/user/", userRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)

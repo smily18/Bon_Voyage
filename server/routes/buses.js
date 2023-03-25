@@ -1,12 +1,16 @@
-const express=require('express');
-const { getBuses, postBus, getBus } = require('../controllers/busController');
+const express = require("express");
+const { getBuses, postBus, getBus } = require("../controllers/busController");
+const requireAuth = require("../middleware/requireAuth");
 
-const router=express.Router();
+const router = express.Router();
 
-router.get("/",getBuses)
+//For Restricting only Users
+//router.use(requireAuth);
 
-router.get("/:name",getBus)
+router.get("/", getBuses);
 
-router.post("/",postBus);
+router.get("/:name", getBus);
 
-module.exports=router;
+router.post("/", postBus);
+
+module.exports = router;
