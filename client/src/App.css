@@ -132,3 +132,24 @@ form button {
   background: #fff;
   border-radius: 4px;
 }
+.map{
+    width:84vw;
+    height:80vh;
+    border: 5px solid black;
+    border-radius: 15px;
+}
+.bus-details{
+  font-family: "Montserrat";
+}
+
+.leaflet-control-container .leaflet-routing-container-hide {
+  display: none;
+}
+
+.locations{
+  display: flex;
+  flex-direction: row;
+}
+.location{
+  margin:10px 20px 20px 10px;
+}

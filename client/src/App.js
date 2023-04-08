@@ -50,7 +50,7 @@ function App() {
             ></Route>
             <Route
               path="/bus/:name"
-              element={user ? <BusDetails /> : <Navigate to="/login" />}
+              element={<BusDetails />}
             ></Route>
             <Route
               path="/about"

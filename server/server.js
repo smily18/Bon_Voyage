@@ -5,17 +5,20 @@ const Bus = require("./models/busModel");
 const cityRoutes = require("./routes/cities");
 const busRoutes = require("./routes/buses");
 const userRoutes = require("./routes/user");
+const locationRoutes=require("./routes/location")
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/city/", cityRoutes);
+app.use("/city", cityRoutes);
 
-app.use("/bus/", busRoutes);
+app.use("/bus", busRoutes);
 
-app.use("/user/", userRoutes);
+app.use("/user", userRoutes);
+
+app.use("/location",locationRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)

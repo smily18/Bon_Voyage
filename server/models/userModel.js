@@ -44,31 +44,24 @@ userSchema.statics.signup = async function (email, password) {
   return user;
 };
 
-userSchema.statics.login = async function (email, password) {
+userSchema.statics.login = async function(email, password) {
 
-  //validation
   if (!email || !password) {
-    throw Error("All fields must be filled");
+    throw Error('All fields must be filled')
   }
 
-  if (!validator.isEmail(email)) {
-    throw Error("Invalid email");
+  const user = await this.findOne({ email })
+  if (!user) {
+    throw Error('Incorrect email')
   }
 
-  if (!validator.isStrongPassword(password)) {
-    throw Error("Password is not strong enough");
-  }
-
-  const user = await this.findOne({ email });
-
-  const match = bcrypt.compare(password, user.password);
-
+  const match = await bcrypt.compare(password, user.password)
   if (!match) {
-    throw Error("Incorrect password");
+    throw Error('Incorrect password')
   }
 
-  return user;
-};
+  return user
+}
 
 const User = mongoose.model("User", userSchema);
 

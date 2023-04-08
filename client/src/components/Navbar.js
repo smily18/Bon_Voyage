@@ -16,7 +16,7 @@ const Navbar = () => {
         <h2>
           <img
             className="logo"
-            src={process.env.PUBLIC_URL + "logo1.png"}
+            src={"../logo1.png"}
             alt="logo"
           />
         </h2>

@@ -7,18 +7,22 @@ const busSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    town:{
-      type:String,
-      required:true
+    town: {
+      type: String,
+      required: true,
     },
-    location:{
-      type:[String,String],
-      required:true
-    }
-  },
-  { timestamps: true }
+    route: [
+      {
+        id: Number,
+        place: String,
+      },
+    ],
+    currentLocation: [String,String],
+    allLat:[String],
+    allLng:[String]
+  }
 );
 
-const Bus=mongoose.model("buses",busSchema);
+const Bus = mongoose.model("buses", busSchema);
 
-module.exports=Bus;
+module.exports = Bus;
