@@ -1,11 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const Bus = require("./models/busModel");
 const cityRoutes = require("./routes/cities");
 const busRoutes = require("./routes/buses");
 const userRoutes = require("./routes/user");
-const locationRoutes=require("./routes/location")
+const imageRoutes = require("./routes/image");
 
 const app = express();
 
@@ -18,7 +17,7 @@ app.use("/bus", busRoutes);
 
 app.use("/user", userRoutes);
 
-app.use("/location",locationRoutes);
+app.use("/image", imageRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)

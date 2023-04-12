@@ -16,6 +16,7 @@ import CityDetails from "./pages/CityDetails";
 import BusDetails from "./pages/BusDetails";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import User from "./pages/User";
 
 export const URL = process.env.REACT_APP_URL;
 
@@ -55,6 +56,10 @@ function App() {
             <Route
               path="/about"
               element={user ? <About /> : <Navigate to="/login" />}
+            ></Route>
+            <Route
+              path="/user"
+              element={user ? <User /> : <Navigate to="/login" />}
             ></Route>
           </Routes>
         </Container>

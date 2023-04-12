@@ -1,28 +1,19 @@
 import { Link } from "react-router-dom";
-import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { HiUserCircle } from "react-icons/hi";
 
 const Navbar = () => {
-  const { logout } = useLogout();
   const { user } = useAuthContext();
-
-  const handleClick = () => {
-    logout();
-  };
 
   return (
     <div className="navbar">
       <Link to="/">
         <h2>
-          <img
-            className="logo"
-            src={"../logo1.png"}
-            alt="logo"
-          />
+          <img className="logo" src={"../logo1.png"} alt="logo" />
         </h2>
       </Link>
       <div>
-        {user && <button onClick={handleClick}>Logout</button>}
+        {user && <Link className="right" to="/user"><HiUserCircle /></Link>}
         {user && (
           <div className="menu">
             <Link to="/about">

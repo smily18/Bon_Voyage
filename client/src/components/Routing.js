@@ -13,7 +13,7 @@ const createRoutingLayer = (props) => {
     },
     show: false,
     addWaypoints: false,
-    routeWhileDragging: false,
+    routeWhileDragging: true,
     draggableWaypoints: true,
     fitSelectedRoutes: false,
     showAlternatives: true,

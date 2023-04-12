@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,600;1,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,600;1,600&family=Noto+Serif+Khojki:wght@400;500;600;700&display=swap');
 
 body {
   background: #eeeeee;
@@ -17,20 +17,19 @@ body {
   box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 2rem;
 }
-.navbar a {
+.menu a {
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: black;
 }
-.navbar button{
+.user button {
   height: 40px;
-  padding:5px;
-  margin:0px 20px;
+  padding: 5px;
+  margin: 5px;
   border-radius: 5px;
-  color:#fff;
-  background-color:red;
-  border:none;
-  float:right;
+  color: white;
+  background-color: red;
+  border: none;
 }
 
 .menu a:hover {
@@ -38,6 +37,7 @@ body {
   border-bottom: 5px solid red;
 }
 .menu {
+  margin-top: 13px;
   display: flex;
   justify-content: space-between;
 }
@@ -73,7 +73,7 @@ body {
 
 /* city details */
 .city-details {
-  font-family: "Montserrat";
+  font-family: "Noto+Serif+Khojki";
 }
 
 .bus-route {
@@ -101,28 +101,41 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
+  font-family: "Noto+Serif+Khojki";
 }
 
 form button {
-    background:green;
-    border: 0;
-    color: #fff;
-    padding: 10px;
-    margin:20px 0px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  div.error {
-    padding: 10px;
-    background: #ffefef;
-    border: 1px solid red;
-    color: red;
-    border-radius: 4px;
-    margin: 20px 0;
-  }
-  input.error {
-    border: 1px solid var(--error);
-  }
+  background: green;
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  margin: 20px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid red;
+  color: red;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+.rad input{
+  display: inline !important;
+  width: 20px;
+  margin: 15px 5px 10px 10px;
+}
+.rad{
+  margin-top: -15px;
+}
+::placeholder { 
+  font-family: "Noto+Serif+Khojki";
+  opacity: 1; 
+}
 
 .login {
   text-align: left;
@@ -132,24 +145,82 @@ form button {
   background: #fff;
   border-radius: 4px;
 }
-.map{
-    width:84vw;
-    height:80vh;
-    border: 5px solid black;
-    border-radius: 15px;
+.map {
+  width: 84vw;
+  height: 80vh;
+  border: 5px solid black;
+  border-radius: 15px;
 }
-.bus-details{
-  font-family: "Montserrat";
+.bus-details {
+  font-family: "Noto+Serif+Khojki";
 }
 
 .leaflet-control-container .leaflet-routing-container-hide {
   display: none;
 }
 
-.locations{
+.locations {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  /* grid-template-columns: auto auto auto auto auto auto max-content; */
 }
-.location{
-  margin:10px 20px 20px 10px;
+.location {
+  margin: 10px 20px 20px 10px;
+  width: auto;
+}
+.right {
+  float: right;
+  font-size: 40px;
+  width: 70px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  color: grey;
+}
+.right:hover {
+  color: black;
+}
+.user{
+  width:80vw;
+  float: left;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.item ul{
+  padding-left: none;
+}
+.item b {
+  display: inline-block;
+  font-size: 25px;
+  width: 35%;
+  position: relative;
+  padding-right: 10px; /* Ensures colon does not overlay the text */
+}
+.user-img{
+  display: flex;
+  margin: 10px 0px;
+  justify-content: space-around;
+}
+.user-img img{
+  width: 200px;
+  border-radius: 50%;
+}
+.but{
+  display: flex;
+  margin-left: 1.5rem;
+  justify-content: space-around;
+}
+ul{
+  list-style-type: none;
+}
+
+.item b::after {
+  content: ":";
+  position: absolute;
+  right: 10px;
+}
+span{
+  font-family: "Noto+Serif+Khojki";
 }
