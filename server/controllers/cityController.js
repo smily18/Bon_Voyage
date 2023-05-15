@@ -2,7 +2,7 @@ const City = require("../models/cityModel");
 const mongoose = require("mongoose");
 
 const getCities = async (req, res) => {
-  const city = await City.find({});
+  const city = await City.find({}).sort({name:1});
   res.status(200).json(city);
 };
 

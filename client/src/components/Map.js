@@ -17,45 +17,48 @@ const Map = (props) => {
   const allLat = props.arr1;
   const allLng = props.arr2;
   const route = props.route;
-  const position = props.position;
-  const time = [];
-  time[0] = -1;
+  const pos = props.position;
+  const time = new Array(pos.length).fill().map(_ => new Array(pos.length).fill(-1))
   var currentStop = 0;
 
-  for (let i = 0; i < route.length - 1; i++) {
-    if (
-      (Number(position[0]) > Number(allLat[i]) &&
-        Number(position[0]) < Number(allLat[i + 1])) ||
-      (Number(position[0]) < Number(allLat[i]) &&
-        Number(position[0]) > Number(allLat[i + 1]))
-    ) {
-      currentStop = i;
-      break;
-    }
-  }
+  for (let i = 0; i < pos.length; i++) {
+    const position = pos[i];
+    time[i][0]=-1;    
 
-  for (let i = 0; i < route.length - 1; i++) {
-    if (i >= currentStop) {
-      var a = position[0] - allLat[i + 1];
-      var b = position[1] - allLng[i + 1];
-      var c = Math.sqrt(a * a + b * b);
-      c = (c + c / 5) * 100;
-      c = Math.round((c / 20) * 60);
-      if(c===0){
-        time[i + 1] = "Bus has arrived";
+    for (let j = 0; j < route.length - 1; j++) {
+      if (
+        (Number(position[0]) > Number(allLat[j]) &&
+          Number(position[0]) < Number(allLat[j + 1])) ||
+        (Number(position[0]) < Number(allLat[j]) &&
+          Number(position[0]) > Number(allLat[j + 1]))
+      ) {
+        currentStop = j;
+        break;
       }
-      else if (c < 60) {
-        time[i + 1] = "Approximately " + c + " mins";
-      } else if (c % 60 === 0) {
-        c=c/60;
-        time[i + 1] = "Approximately " + c + " hr";
+    }
+
+    for (let j = 0; j < route.length - 1; j++) {
+      if (j >= currentStop) {
+        var a = position[0] - allLat[j + 1];
+        var b = position[1] - allLng[j + 1];
+        var c = Math.sqrt(a * a + b * b);
+        c = (c + c / 5) * 100;
+        c = Math.round((c / 30) * 60);
+        if (c === 0) {
+          time[i][j + 1] = "Bus has arrived\n";
+        } else if (c < 60) {
+          time[i][j + 1] = "In " + c + " mins \n";
+        } else if (c % 60 === 0) {
+          c = c / 60;
+          time[i][j + 1] = "In " + c + " hr \n";
+        } else {
+          c = c / 60;
+          c = c.toFixed(1);
+          time[i][j + 1] = "In " + c + " hrs \n";
+        }
       } else {
-        c = c / 60;
-        c = c.toFixed(1);
-        time[i + 1] = "Approximately " + c + " hrs";
+        time[i][j + 1] = -1;
       }
-    } else {
-      time[i + 1] = -1;
     }
   }
 
@@ -65,23 +68,30 @@ const Map = (props) => {
       id="mapId"
       className="map"
       zoom={11}
-      center={position}
+      center={pos[0]}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution="Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri"
+        attribution="Tiles &copy; Esrj&mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri"
       />
-      <Marker position={props.position} icon={icon} draggable="true">
-        <Popup>Bus is Here</Popup>
-      </Marker>
+      {pos.map((p,i) => {
+        return (
+          <Marker position={p} icon={icon}>
+          </Marker>
+        );
+      })}
 
       {allLat.map((l, i) => {
         return (
           <Marker position={[l, allLng[i]]} icon={icon1}>
-            <Popup>
+            <Popup className="popup">
               <b>{route[i].place}</b>
-              <br />
-              {time[i] !== -1 ? time[i] : "Crossed"}
+              <p>Next Bus</p>
+              {time.map((t)=>{
+                return (
+                  <div>{t[i]!==-1 && <div className="bus-time">{t[i]}</div>}</div>
+                )
+              })}
             </Popup>
           </Marker>
         );
@@ -126,4 +136,3 @@ export default Map;
 // };
 
 // export default Map;
-

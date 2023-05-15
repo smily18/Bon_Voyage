@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const cityRoutes = require("./routes/cities");
 const busRoutes = require("./routes/buses");
 const userRoutes = require("./routes/user");
@@ -10,6 +11,11 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: ["https://localhost:4000", "https://Bonvoyage-bus-tracking.onrender.com"],
+  })
+);
 
 app.use("/city", cityRoutes);
 

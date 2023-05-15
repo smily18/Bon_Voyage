@@ -2,31 +2,38 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BiBus } from "react-icons/bi";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { URL } from "../App";
 
 const CityDetails = () => {
   const { name } = useParams();
   const [city, setCity] = useState(null);
-  const {user} = useAuthContext();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchCity = async () => {
-      const response = await fetch("/city/" + name,{
-        headers:{
-          "Authorization":`Bearer ${user.token}`
-        }
+      const response = await fetch(`${URL}/city/` + name, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       });
       const json = await response.json();
       if (response.ok) {
         setCity(json);
       }
     };
-    if(user){
+    if (user) {
       fetchCity();
     }
-  }, [name,user]);
+  }, [name, user]);
 
   return (
     <div className="city-details">
+      {!city && (
+        <div className="center">
+          <div className="ring"></div>
+          <span>Loading....</span>
+        </div>
+      )}
       {city &&
         city.bus.map((bus) => (
           <Link to={`/bus/${bus}`}>

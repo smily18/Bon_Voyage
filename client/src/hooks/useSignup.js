@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { URL } from "../App";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
@@ -7,7 +8,7 @@ export const useSignup = () => {
   const { dispatch } = useAuthContext();
 
   const signup = async (firstName, lastName, gender, dob, email, password) => {
-    const response = await fetch("/user/signup", {
+    const response = await fetch(`${URL}/user/signup`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

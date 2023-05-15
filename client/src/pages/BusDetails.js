@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Map from "../components/Map";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { GoLocation } from "react-icons/go";
+import { URL } from "../App";
 
 const BusDetails = () => {
   const { name } = useParams();
@@ -12,7 +13,7 @@ const BusDetails = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const fetchBus = async () => {
-        const response = await fetch("/bus/" + name, {
+        const response = await fetch(`${URL}/bus/` + name, {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

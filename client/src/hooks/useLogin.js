@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { URL } from "../App";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
@@ -7,7 +8,7 @@ export const useLogin = () => {
   const { dispatch } = useAuthContext();
 
   const login = async (email, password) => {
-    const response = await fetch("/user/login", {
+    const response = await fetch(`${URL}/user/login`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -32,5 +33,5 @@ export const useLogin = () => {
       setIsLoading(false);
     }
   };
-  return {login,isLoading,error}
+  return { login, isLoading, error };
 };

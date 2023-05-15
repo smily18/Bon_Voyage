@@ -17,7 +17,7 @@ const busSchema = mongoose.Schema(
         place: String,
       },
     ],
-    currentLocation: [String,String],
+    currentLocation: [[String,String]],
     allLat:[String],
     allLng:[String]
   }
