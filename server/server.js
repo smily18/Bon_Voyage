@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ["https://localhost:4000", "https://Bonvoyage-bus-tracking.onrender.com"],
+    origin: ["https://localhost:4000", "https://bonvoyage-bus-tracking.onrender.com"],
   })
 );
 
