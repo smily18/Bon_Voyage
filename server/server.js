@@ -17,6 +17,12 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log(req.path, req.method);
+  next();
+});
+
 app.use("/city", cityRoutes);
 
 app.use("/bus", busRoutes);
